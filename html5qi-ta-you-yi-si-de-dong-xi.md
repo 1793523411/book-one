@@ -35,10 +35,10 @@ week 星期
 
   keygen 元素  
 
-      keygen 元素的作用是提供一种验证用户的可靠方法。 
-      keygen 元素是密钥对生成器（key-pair generator）。当提交表单时，会生成两个键，    一个是私钥，一个公钥。 
+keygen 元素的作用是提供一种验证用户的可靠方法。 
+keygen 元素是密钥对生成器（key-pair generator）。当提交表单时，会生成两个键，    一个是私钥，一个公钥。 
 
-    私钥（private key）存储于客户端，公钥（public key）则被发送到服务器。公钥可用于之后验证用户的客户端证书（client certificate）。
+私钥（private key）存储于客户端，公钥（public key）则被发送到服务器。公钥可用于之后验证用户的客户端证书（client certificate）。（SSH）
 
 
 ```
@@ -50,8 +50,14 @@ week 星期
 
 
 
+
+
+```
 Max-width   
-Min-width 
+Min-width
+```
+
+ 
 	 
 ####	表单属性
 placeholder 占位符
@@ -65,7 +71,7 @@ pattern 正则表达式 验证表单
  手机号:
  `<input type="tel" name="tel" required="required"       pattern="^(\+86)?1[3,5,8](\d{9})$">`
     表单重写没有提及，自行验证，共包含
-应用于提交按钮上，如：<input type="submit" formaction="xxx.php">
+应用于提交按钮上，如：`<input type="submit" formaction="xxx.php">`
  
 ####	表单事件
 `oninput` 用户输入内容时触发，可用于移动端输入字数统计
