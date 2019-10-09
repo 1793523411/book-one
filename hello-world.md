@@ -15,8 +15,95 @@ HTML5相比较HTML可有趣多了，也高级多了。（**广义上讲H5=html5+
 首先新增了智能表单，可以取色支持自动提示，度量器等丰富的功能满足了许多需求，多媒体标签，对浏览器的兼容性更好，可以自己做自己喜欢的进度条，对标签语义化做的更好了，最重要的一点是做了Dom拓展，还有一些，拖拽，web存储，，地理定位，，网络状态，应用程序缓存等高级功能。
 
  ### DOM拓展
+ 
+获取单个元素
+
+```
+  var box1 = document.querySelector('.box3')
+  box1.styel.background = 'red'
+```
+1、document.getElementsByClassName ('class') 通过类名获取元素，以类数组形式存在。
+2、document.querySelector(‘div’) 通过CSS选择器获取元素，符合匹配条件的第1个元素。
+3、document.querySelectorAll('selector') 通过CSS选择器获取元素，以类数组形式存在。<br>
+
+ 获取复合元素
+
+
+```
+//会获取所有复合条的 标签，返回的是一个数组， 参数：可以是任意 css选择器
+     var divs= document.querySelectorAll('div.box');
+        console.log(divs);
+
+        for(var i=0;i<divs.length;i++){
+            divs[i].style.background='red';
+        }
+```
+
+
+ ####类名操作
+ 
+1、Node.classList.add('class') 添加class
+`` box1.classList.add('active'); ``
+2、Node.classList.remove('class') 移除class
+``  box1.classList.remove('active'); ``
+3、Node.classList.toggle('class') 切换class，有则移除，无则添加
+
+
+```
+document.querySelector('button').onclick=function(){
+            document.querySelector('.box3').classList.toggle('active');
+        }
+```
+
+
+4、Node.classList.contains('class') 检测是否存在class
+ 
+
+```
+判断是否包含某个类名  返回结果 true/false
+        var f=box1.classList.contains('active');
+```
+
+
+&nbspNode指一个有效的DOM节点，是一个通称。
+&nbspH5的操作类名的方式跟jQuery一样好用
+ #### 自定义属性
+ 
+ 在HTML5中我们可以自定义属性，其格式如下data-*=""，例如
+data-info="我是自定义属性"，通过Node.dataset['info'] 我们便可以获取到自定义的属性值。
+Node.dataset是以类对象形式存在的
+当我们如下格式设置时，则需要以驼峰格式才能正确获取
+
+ 
+
+```
+<!-- 给标签添加自定义属性 必须以data-开头 -->
+    <div class="box" title="盒子" data-my-name="zs"  data-content="我是一个div">div</div>
+    自定义的属性 需要通过 dateset[]方式来获取 
+    var box=document.querySelector('.box');
+        console.log(box.dataset['content']);
+         var num=100;
+        num.index=10;
+        box.index=100;
+        box.dataset['content']='aaaa';
+//        data-my-name="zs" 如何获取
+        console.log(box.dataset['myName']);
+```
+
+
+
+
+
+#### 获取元素
+
+ 
  ### 拖拽
+ 
  ### web存储
+ 
  ### 地理定位
+ 
  ### 网络状态
+ 
  ### 应用程序缓存
+ 
