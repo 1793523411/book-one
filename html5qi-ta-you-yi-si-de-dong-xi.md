@@ -62,13 +62,14 @@ form 指定表单项属于哪个form，处理复杂表单时会需要
 novalidate 关闭验证，可用于<form>标签
 required 必填项
 pattern 正则表达式 验证表单
- 手机号:<input type="tel" name="tel" required="required"       pattern="^(\+86)?1[3,5,8](\d{9})$">
+ 手机号:
+ `<input type="tel" name="tel" required="required"       pattern="^(\+86)?1[3,5,8](\d{9})$">`
     表单重写没有提及，自行验证，共包含
 应用于提交按钮上，如：<input type="submit" formaction="xxx.php">
  
 ####	表单事件
-oninput 用户输入内容时触发，可用于移动端输入字数统计
-oninvalid 验证不通过时触发
+`oninput` 用户输入内容时触发，可用于移动端输入字数统计
+`oninvalid` 验证不通过时触发
  
 
 
