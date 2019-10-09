@@ -144,5 +144,83 @@
 </script>
 ```
 
+### 拖拽案例
+
+```
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box1,.box2{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+
+        .box1 div,.box2 div{
+            width: 80px;
+            width: 97px;
+            height: 97px;
+            background-color: red;
+            border-radius: 50%;
+            float: left;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .box2{
+            position: absolute;
+            left:600px;
+            top:100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div draggable="true">1</div>
+        <div draggable="true">2</div>
+        <div draggable="true">3</div>
+        <div draggable="true">4</div>
+        <div draggable="true">5</div>
+        <div draggable="true">6</div>
+        <div draggable="true">7</div>
+        <div draggable="true">8</div>
+    </div>
+    <div class="box2">
+
+    </div>
+
+    <script>
+        var box1=document.querySelector('.box1');
+        var box2=document.querySelector('.box2');
+
+        var boxs=document.querySelectorAll('.box1 div');
+
+        var temp=null;
+
+        for(var i=0;i<boxs.length;i++){
+            boxs[i].addEventListener('dragstart',function(){
+                temp=this;
+            });
+        }
+
+        box2.addEventListener('dragover',function(e){
+            e.preventDefault();
+        });
+
+        box2.addEventListener('drop',function(e){
+           box2.appendChild(temp);
+           temp=null;
+        });
+    </script>
+</body>
+</html>
+```
+
 
 

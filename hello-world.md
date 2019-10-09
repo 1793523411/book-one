@@ -116,20 +116,70 @@ ondragleave	应用于目标元素，当鼠标离开目标元素时调用
  
  页面中设置了draggable="true"属性的元素
 
- `啊实打实的`
+
+```
+<script>
+        var box=document.querySelector('.box');
+
+//        绑定拖拽事件
+//        拖拽开始
+        box.ondragstart=function(){
+            console.log('拖拽开始...');
+        }
+//      拖拽结束
+        box.ondragend=function(){
+            console.log('拖拽结束...');
+        }
+//        拖拽离开 :鼠标拖拽时离开被拖拽的元素是触发
+        box.ondragleave=function(){
+            console.log('拖拽离开了....');
+        }
+
+        box.ondrag=function(){
+            console.log('拖拽....');
+        }
+
+
+    </script>
+
+```
+
+#### 拖拽-目标元素事件
+
+页面中任何一个元素都可以成为目标元素
+
+
+```
+ var two=document.querySelector('.two');
+        var one=document.querySelector('.one');
+
+//        当被拖拽元素进入是触发
+        two.ondragenter=function(){
+            console.log('来了...');
+        }
+
+        // 当被拖拽元素离开时触发
+        two.ondragleave=function(){
+            console.log('走了...');
+        }
+        one.ondragstart=function(){
+            console.log('拖拽开始...');
+        }
+        one.ondragend=function(){
+            console.log('拖拽结束...');
+        }
+//      当 拖拽元素在 目标元素上是 连续触发
+        two.ondragover=function(e){
+//             阻止拖拽事件的默认行为；
+            e.preventDefault();
+            console.log('over...');
+        }
+```
+
+### web存储
+### 地理定位
+### 网络状态
+### 应用程序缓存
    
- #### 拖拽-目标元素事件
- 
- 页面中任何一个元素都可以成为目标元素
- 
- #### 
- 
- 
- ### web存储
- 
- ### 地理定位
- 
- ### 网络状态
- 
- ### 应用程序缓存
+
  
