@@ -16,4 +16,6 @@
 * [C3-1](c3-1.md)
 * [C3-2](c3-2.md)
 * [CSS-practice](css-practice.md)
+* [JD pratice](jd-pratice.md)
+* [JavaScript--1](javascript-1.md)
 
