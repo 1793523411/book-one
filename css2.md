@@ -1,4 +1,4 @@
- # css书写，表签元素，三大特性
+ # css书写，表签元素，三大特性，修饰，伪类
  
  ## 样式表书写位置
  
@@ -91,19 +91,25 @@ a:hover{属性:值;}      鼠标放到链接上显示的状态  	a:active{属性
  
 ## 修饰
 ### 文本
+
+
+```
 text-decoration: none  |   underline   |     line-through
+```
+
+
 ###背景属性
-background-color     背景颜色
-background-image    背景图片
-Background-repeat    repeat(默认)  |  no-repeat |   repeat-x   |  repeat-y     背景平铺
+`background-color `    背景颜色
+`background-image `   背景图片
+`Background-repeat`    repeat(默认)  |  no-repeat |   repeat-x   |  `repeat-y `    背景平铺
 `Background-position  left  |  right  |  center  |  top  | bottom`  ### 背景定位
  
-★方位值只写一个的时候，另外一个值默认居中。
+* 方位值只写一个的时候，另外一个值默认居中。
  
-★写2个方位值的时候，顺序没有要求。
+* 写2个方位值的时候，顺序没有要求。
  
-★写2个具体值的时候，第一个值代表水平方向，第二个值代表垂直方向。
-７.5	Background-attachment   背景是否滚动   scroll  |  fixed
-７.6	背景属性连写
+* 写2个具体值的时候，第一个值代表水平方向，第二个值代表垂直方向。
+#### Background-attachment   背景是否滚动   scroll  |  fixed
+### 背景属性连写
  
-★：连写的时候没有顺序要求，url为必写项。
+* 连写的时候没有顺序要求，url为必写项。
