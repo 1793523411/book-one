@@ -18,4 +18,5 @@
 * [CSS-practice](css-practice.md)
 * [JD pratice](jd-pratice.md)
 * [JavaScript--1](javascript-1.md)
+* [JavaScript--2](javascript-2.md)
 
