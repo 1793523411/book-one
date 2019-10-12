@@ -22,4 +22,6 @@
 * [JavaScript--3](javascript-3.md)
 * [JavaScript--4](javascript-4.md)
 * [DOM-1](dom-1.md)
+* [JS-TX](js-tx.md)
+* [JS-TX-2](js-tx-2.md)
 
