@@ -24,4 +24,6 @@
 * [DOM-1](dom-1.md)
 * [JS-TX](js-tx.md)
 * [JS-TX-2](js-tx-2.md)
+* [JS-TX-3](js-tx-3.md)
+* [JS-TX-practice](js-tx-practice.md)
 

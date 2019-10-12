@@ -32,21 +32,34 @@ function animate(obj,target) {
 div.style["width"] = "5000px";
 可以通过传字符串或者变量的方式获取和赋值属性。
 缺点：他的操作完全是对行内式CSS来操作的。赋值的时候毫无问题。但是，获取值的时候有问题了。
-1.12	获取任意类型的CSS样式的属性值
+### 获取任意类型的CSS样式的属性值
+
+
+```
 Div.style.width    
 div.currentStyle.width
 Window.getComputedStyle(div,null).width;
+```
+
+
 他们的公共使用变量或者字符串获取属性值的方法都是：去电属性和点，然后加上中括号和属性的字符串形式。
+
+
+```
 Div.style[“width”];
 div.currentStyle[“width”];
 Window.getComputedStyle(div,null)[“width”];
+```
+
+
 
 ### 开闭原则
 定义一个变量。数据可以修改。但是，只能修改成为两个值。
- 
+** 只是作为一个判断的条件，只有两个值**
  
 
-### 回调函数
+### 回调函数(js一大特色：异步编程)
+_这里不详细讲_
 程序执行完毕，在次执行的函数。
 在函数中给指定的函数定义一个形参，然后程序执行到最后，调用这个形参后面加一个括号。
 
