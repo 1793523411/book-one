@@ -203,9 +203,9 @@ array = [];  //推荐
 
 ## 构造函数的原理
 
-function Num\(aaa\){
+function Num(aaa){
 
-this\["\[\[PrimitiveValue\]\]"\] = num/1;
+this["[[PrimitiveValue]]"] = num/1;
 
 return aaa/1;
 
