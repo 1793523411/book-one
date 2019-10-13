@@ -29,4 +29,6 @@
 * [JQuery-1](jquery-1.md)
 * [jQuery-2](jquery-2.md)
 * [jQuery-3](jquery-3.md)
+* [Ajax-服务器](ajaxfu-wu-qi.md)
+* [Ajax-php](ajax-php.md)
 
