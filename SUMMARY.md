@@ -39,4 +39,6 @@
 * [web-1](web-1.md)
 * [js-review](js-review.md)
 * [JS-H](js-h.md)
+* [JS-H2](js-h2.md)
+* [JS-H-practice](js-h-practice.md)
 
