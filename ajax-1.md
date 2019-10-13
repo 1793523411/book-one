@@ -193,36 +193,34 @@ var xml=new ActiveXObject("Microsoft.XMLHTTP");
 |:---:|:---:|
 |open(method,url,async)	|规定请求的类型、URL 以及是否异步处理请求。method：请求的类型；GET 或 POSTurl：文件在服务器上的位置async：true（异步）或 false（同步）
 |send(string)|	将请求发送到服务器。string：仅用于 POST 请求
-3.POST请求注意点:
+### POST请求注意点:
 如果想要像form表单提交数据那样使用POST请求,需要使用XMLHttpRequest对象的setRequestHeader()方法 来添加 HTTP 头。然后在 send() 方法中添加想要发送的数据：
 
 
+
+
+```
 xmlhttp.open("POST","ajax_test.php",true);
 
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 
 xmlhttp.send("fname=Bill&lname=Gates");
-4.onreadystatechange事件
+```
+
+
+### onreadystatechange事件
 当服务器给予我们反馈时,我们需要实现一些逻辑
 
-属性	描述
-onreadystatechange	存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
-readyState	
-存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+|属性|	描述|
+|:---:|:---:|
+|onreadystatechange|	存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
+|readyState|	存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。0: 请求未初始化1: 服务器连接已建立2: 请求已接收3: 请求处理中4: 请求已完成，且响应已就绪
+|status|	200: "OK"404: 未找到页面
 
-0: 请求未初始化
-1: 服务器连接已建立
-2: 请求已接收
-3: 请求处理中
-4: 请求已完成，且响应已就绪
-status	
-200: "OK"
-
-404: 未找到页面
-
-4.服务器响应内容
+### 服务器响应内容
 如果响应的是普通字符串,使用responseText,如果响应的是XML,使用responseXML
 
-属性	描述
-responseText	获得字符串形式的响应数据。
-responseXML	获得 XML 形式的响应数据。
+|属性|	描述|
+|:---:|:---:|
+|responseText|	获得字符串形式的响应数据。
+|responseXML|	获得 XML 形式的响应数据。
