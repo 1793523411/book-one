@@ -203,7 +203,7 @@ var arr =  new Array();
 
 
 	
-### Object.prototype的成员
+## Object.prototype的成员
 constructor
 原型对象内的一个属性，指向该原型对象相关联的构造函数
 hasOwnProperty
@@ -230,7 +230,7 @@ propertyIsEnumerable
 //        console.log(now.toLocaleString());  //时间2019/9/6 下午8:47:26
 ```
 
-#### valueOf
+## valueOf
 获取当前对象的值
 在对象参与运算的时候
         
@@ -248,7 +248,7 @@ propertyIsEnumerable
 		        //可以使用 对象.__proto__ 去访问原型对象
 ```
 
-### 创建函数的几种方式
+## 创建函数的几种方式
 	
 
 ```

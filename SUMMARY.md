@@ -42,4 +42,7 @@
 * [JS-H2](js-h2.md)
 * [JS-H-practice](js-h-practice.md)
 * [JS-H3](js-h3.md)
+* [JS-H4](js-h4.md)
+* [JS-H5](js-h5.md)
+* [JS-H6](js-h6.md)
 
