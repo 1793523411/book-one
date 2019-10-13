@@ -46,4 +46,6 @@
 * [JS-H5](js-h5.md)
 * [JS-H6](js-h6.md)
 * [canvas-1](canvas-1.md)
+* [canvas-2](canvas-2.md)
+* [canvas-3](canvas-3.md)
 
