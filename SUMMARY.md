@@ -41,4 +41,5 @@
 * [JS-H](js-h.md)
 * [JS-H2](js-h2.md)
 * [JS-H-practice](js-h-practice.md)
+* [JS-H3](js-h3.md)
 
