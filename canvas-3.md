@@ -194,11 +194,6 @@ CanvasRenderingContext2D.createPattern()
     ctx.fill();
 ```
 
-
-效果
-
-
-
 ## 重复填充
 语法: `CanvasRenderingContext2D.createPattern( img, repetition )`
 
