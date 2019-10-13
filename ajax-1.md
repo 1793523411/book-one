@@ -1,7 +1,7 @@
 # Ajax概念及基本使用
 
 **同步&异步**
-### 先上概念
+## 先上概念
 
 * 同步:必须等待前面的任务完成,才能继续后面的任务
 
@@ -30,12 +30,12 @@
 
 页面重新刷新 o(╯□╰)o
 
-异步更新
+* 异步更新
 实际情况是:我们在访问新浪微博时,当你看到一大半了,会自动帮我们加载更多的微博,同时页面并没有刷新
 
 php_weibo.gif-4765.5kB
 
-Ajax概念
+## Ajax概念
 当我们正在排队的时候,可以通过手机去干一些其他的事情.
 
 在浏览器中,我们也能够不刷新页面,通过ajax的方式去获取一些新的内容,类似网页有微博,朋友圈,邮箱等
@@ -46,19 +46,17 @@ Asynchronous Javascript And XML（异步JavaScript和XML）,他并不是凭空�
 XMLHttpRequest
 ajax使用的依旧是HTTP请求,那么让我们来回忆一下一个完整的HTTP请求需要什么
 
->
-
 请求的网址,方法get/post
 
 提交请求内容数据,请求主体等
 
 接收响应回来的内容
 
-五步使用法:
+###  五步使用法:
 
 建立XMLHTTPRequest对象
 
-注册回调函数
+#### 注册回调函数
 
 当服务器回应我们了,我们想要执行什么逻辑
 使用open方法设置和服务器端交互的基本信息
@@ -74,7 +72,7 @@ ajax使用的依旧是HTTP请求,那么让我们来回忆一下一个完整的HT
 
 get的数据,直接在请求的url中添加即可
 
-
+```
 <script type="text/javascript">
 
     // 创建XMLHttpRequest 对象
@@ -104,6 +102,10 @@ get的数据,直接在请求的url中添加即可
     };
 
 </script>
+    
+```
+    
+```
 示例代码:POST
 
 <script type="text/javascript">
@@ -147,16 +149,28 @@ get的数据,直接在请求的url中添加即可
     };
 
 </script>
-XMLHttpRequest_API讲解
-1.创建XMLHttpRequest对象(兼容性写法)
-新版本浏览器:
+```
 
+
+### XMLHttpRequest_API讲解
+#### 创建XMLHttpRequest对象(兼容性写法)
+* 新版本浏览器:
+
+
+
+```
 var xml=new XMLHttpRequest();
 （IE5 和 IE6）
 
 var xml=new ActiveXObject("Microsoft.XMLHTTP");
-考虑兼容性创建Ajax对象
+```
 
+
+* 考虑兼容性创建Ajax对象
+
+
+
+```
  var request ;
 
  if(XMLHttpRequest){
@@ -172,18 +186,13 @@ var xml=new ActiveXObject("Microsoft.XMLHTTP");
     new ActiveXObject("Microsoft.XMLHTTP");
 
  }
-2.发送请求:
-方法	描述
-open(method,url,async)	
-规定请求的类型、URL 以及是否异步处理请求。
+```
 
-method：请求的类型；GET 或 POST
-url：文件在服务器上的位置
-async：true（异步）或 false（同步）
-send(string)	
-将请求发送到服务器。
-
-string：仅用于 POST 请求
+#### 发送请求:
+|方法|	描述|
+|:---:|:---:|
+|open(method,url,async)	|规定请求的类型、URL 以及是否异步处理请求。method：请求的类型；GET 或 POSTurl：文件在服务器上的位置async：true（异步）或 false（同步）
+|send(string)|	将请求发送到服务器。string：仅用于 POST 请求
 3.POST请求注意点:
 如果想要像form表单提交数据那样使用POST请求,需要使用XMLHttpRequest对象的setRequestHeader()方法 来添加 HTTP 头。然后在 send() 方法中添加想要发送的数据：
 
