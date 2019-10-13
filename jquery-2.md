@@ -176,7 +176,7 @@ $(selector).hide(“slow”);
 $(selector).hide(1000, function(){});
 $(selector).hide();
 
-1.5.2	滑入滑出动画
+### 滑入滑出动画
 1滑入动画效果（联想：生活中的卷帘门）
 作用：让元素以下拉动画效果展示出来
 
@@ -259,12 +259,6 @@ $(selector).fadeTo(1000, .5); //  0全透，1全不透
 // 第一个参数为0，此时作用相当于：.css(“opacity”, .5);
 $(selector).fadeTo(0, .5);
 ```
-
-
-
-jQuery提供的动画使用方法总结：
- 
-
 
 有规律的体现：
 jQuery提供的这几个动画效果控制的CSS属性包括：高度、宽度、不透明度。{height:400px; width:300px; opacity:.4;}

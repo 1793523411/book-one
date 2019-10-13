@@ -28,4 +28,5 @@
 * [JS-TX-practice](js-tx-practice.md)
 * [JQuery-1](jquery-1.md)
 * [jQuery-2](jquery-2.md)
+* [jQuery-3](jquery-3.md)
 
