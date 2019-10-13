@@ -27,7 +27,7 @@ CanvasRenderingContext2D.clearRect
 ```
 
 
-#####绘制矩形框
+##### 绘制矩形框
 语法: `CanvasRenderingContext2D.strokeRect( x, y, width. height )`
 
 描述:
