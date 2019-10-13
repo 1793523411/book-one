@@ -254,4 +254,4 @@ yellow
 header()函数 用来向客户端(浏览器)发送报头,如果出现中文无法显示,可以尝试在PHP代码顶部添加 如下代码
 header("content-type:text/html; charset=utf-8");
 ```
-
+![](/assets/PHP.png)
