@@ -192,6 +192,26 @@ Element是一个 js对象，需要转换成jquery对象
 
 
 ```
+jQuery(function () {
+            //打印版本号。
+//            console.log($.fn.jquery);
+
+            //让1.11.1放弃$的使用权
+            $.noConflict();
+            console.log($.fn.jquery);
+            console.log(jQuery.fn.jquery);
+
+            //放弃两个符号的使用权，同时定义一个新的使用权
+//            var MrLv = $.noConflict(true);
+//            console.log($.fn.jquery);
+//            console.log(jQuery.fn.jquery);
+//            console.log(MrLv.fn.jquery);
+        })
+```
+
+
+
+```
 // 模拟另外的库使用了 $ 这个变量
 // 此时，就与jQuery库产生了冲突
 var $ = { name : “ygj” };
