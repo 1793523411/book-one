@@ -254,4 +254,292 @@ yellow
 header()函数 用来向客户端(浏览器)发送报头,如果出现中文无法显示,可以尝试在PHP代码顶部添加 如下代码
 header("content-type:text/html; charset=utf-8");
 ```
+
+### php中header()
+
+
+浏览器访问http服务器,接收到响应时,会根据响应报文头的内容进行一些具体的操作,在php中,我们能够使用 header来设置这些内容
+
+设置文本编码
+
+设置编码格式为:utf-8
+
+
+```
+header('content-type:text/html; charset= utf-8');
+```
+
+
+设置页面跳转
+
+设置跳转到百度首页
+
+
+```
+header('location:http://www.baidu.com');
+```
+
+
+设置页面间隔刷新
+
+
+```
+header('refresh:3; url=http://www.xiaomi.com');
+```
+## PHP表单
+
+### PHP_GET数据获取
+在PHP中,如果想要获取通过get方法提交的数据,可以通过$_GET对象来获取(虽然参数在地址栏中可以查看)
+
+HTML代码: 下面就是一个简单的表单代码,将数据提交到01.php,使用get的方式
+
+
+```
+<form action="01.php" method="get" >
+  <label for="">姓名:
+      <input type="text" name= "userName"></label>
+      <br/>
+  <label for="">邮箱:
+      <input type="text" name= "userEmail"></label>
+      <br/>
+      <input type="submit" name="">
+</form>
+```
+
+
+PHP代码:
+
+
+
+```
+<?php 
+    echo "<h1>GET_PAGE</h1>";
+    echo 'userName:'.$_GET['userName'];
+    echo '<br/>';
+    echo 'userEmail:'.$_GET['userEmail'];
+ ?>
+php_get.gif-191.8kB
+
+```
+
+
+## PHP_POST数据获取
+在PHP中,如果想要获取通过post方法提交的数据,可以通过$_POST对象来获取
+
+HTML代码: 下面就是一个简单的表单代码,将数据提交到02.php,使用post的方式(注意:代码中的method改为post)
+
+
+
+```
+<form action="02.php" method="post" >
+  <label for="">姓名:
+      <input type="text" name= "userName"></label>
+      <br/>
+  <label for="">邮箱:
+      <input type="text" name= "userEmail"></label>
+      <br/>
+      <input type="submit" name="">
+</form>
+```
+
+
+PHP代码:
+
+
+
+```
+<?php 
+    echo "<h1>POST_PAGE</h1>";
+    echo 'userName:'.$_POST['userName'];
+    echo '<br/>';
+    echo 'userEmail:'.$_POST['userEmail'];
+ ?>
+php_post.gif-271.1kB
+
+```
+
+
+### POST&GET错误处理
+当我们直接访问POST&GET页面时由于并没有传递任何数据,会因为$_GET或$_POST不存在对应的key而报错.
+
+处理方式1:
+使用array_key_exists(key, 数组)函数来进行判断
+参数1: 要检测的key字符串
+参数2: 检验的数组
+    
+
+```
+if(array_key_exists('name', $_GET)){
+        //如果有数据 再去读取
+    }else{
+        // 反之 可以执行一些 其他的逻辑
+    }
+```
+
+
+### PHP文件上传处理01_$_FILES对象
+上传文件时html代码中需要进行如下设置:
+
+在html表单中需要设置`enctype="multipart/form-data"`
+只能post方式 PHP接收文件可以通过$_FILES来获取
+HTML代码:
+
+
+
+```
+<form action="03.fileUpdate.php" method="post" enctype="multipart/form-data">
+      <label for="">照片:
+          <input type="file" name = "picture" multiple=""></label>
+      <br/>
+      <input type="submit" name="">
+  </form>
+```
+
+
+PHP代码01 这部分代码测试$_FILES文件的具体内容
+
+
+
+```
+<?php  
+  sleep(5);// 让服务器休息一会
+  print_r($_FILES);
+?>
+php_post_file.gif-485.3kB
+```
+
+
+
+现象:
+
+点击提交后,服务器没有立即出现反应,而是休息了一会sleep(5)
+在wamp/tmp目录下面出现了一个.tmp文件
+.tmp文件一会就被自动删除了
+服务器返回的内容中,有文件的名字[name] => computer.png,以及上传文件保存的位置D:\wamp\tmp\php3D70.tmp
+PHP文件上传处理02_文件保存
+刚刚演示了$_FILES对象的作用,以及PHP接受上传文件时,会先保存在一个临时目录下,那么接下来我们就演示如何将临时目录下面的文件保存起来
+
+HTML代码: 这部分的代码不需要改变
+
+
+
+```
+<form action="03.fileUpdate.php" method="post" enctype="multipart/form-data">
+      <label for="">照片:
+          <input type="file" name = "picture" multiple=""></label>
+      <br/>
+      <input type="submit" name="">
+  </form>
+```
+
+
+PHP代码 move_uploaded_file()这个函数可以处理文件 w3cSchool_move_uploaded_file函数解释
+
+
+
+```
+Array ( [picture] => Array ( 
+        [name] => computer.png 
+        [type] => image/png 
+        [tmp_name] => D:\wamp\tmp\php8913.tmp 
+        [error] => 0 [size] => 5212 ) 
+    )
+```
+
+
+其中我们需要通过picture(根据表单标签的name属性决定)获取临时文件名以及上传文件名
+
+
+
+```
+<?php  
+    sleep(5);// 让服务器休息一会,方便我们查看上传的临时文件
+    // 第一个参数是 规定要移动的文件
+    // 第二个参数是 规定文件的新位置
+    move_uploaded_file($_FILES['picture']['tmp_name'], './upload/'.$_FILES['picture']['name']);
+ ?>
+```
+﻿## php保存上传文件
+
+
+php中上传的文件,会先以临时文件的方式保存起来,我们将其移动到其他的位置即可
+
+### $_FILE
+在php中 能够通过$_FILE 获取上传的文件
+
+浏览器端部分代码()
+假定浏览器在form表单中如下标签
+注1form提交数据需使用post提交
+注2form提交数据时,需在form表单中添加enctype=multipart/form-data属性
+
+
+```
+<form action='xx.php' method='post' enctype='multipart/form-data'>
+    <input type='file' name='icon'>
+    <input type='submit'>
+</form>
+```
+
+
+### 服务端代码
+
+
+```
+$_FILES用法跟$_GET,$_POST类似,都是关系型数组
+#_FILE['key']:可以获取对应上传的文件,这里的key跟提交时的name相对应
+#_FILE['key']['name'] 可以获取上传的文件名
+#_FILE['key']['tmp_name']可以获取上传的文件保存的临时目录
+<?php
+// 可以打印 $_FILES的所有信息
+print_r($_FILES);
+?>
+move_uploaded_file(移动文件)
+```
+
+
+上传的临时文件,一会就会被自动删除,我们需要将其移动到保存的位置
+
+
+```
+move_uploaded_file参数:
+参数1:移动的文件
+参数2:目标路径
+move_uploaded_file($_FILES['photo']['tmp_name'], './images/test.jpg');
+
+```
+## php设置上传文件大小限制
+
+
+
+在使用wamp过程中,如果想要修改上传的文件显示,需要如何设置呢?
+
+### 修改php.ini
+步骤
+
+左键点击wamp
+选择php
+在弹出的窗口中选择php.ini
+在打开的文件中进行修改(修改步骤如下)
+修改完毕,保存并重启wamp
+示意图 steps.gif-168.6kB
+
+### 修改内容
+使用文本编辑工具的搜索功能找到下列选项 进行修改
+
+设置文件最大上传限制(值的大小可以根据需求修改)
+
+
+```
+file_uploads = On   ; 是否允许上传文件 On/Off 默认是On
+upload_max_filesize = 32M       ; 上传文件的最大限制
+post_max_size = 32M             ; 通过Post提交的最多数据
+考虑网络传输快慢,这里修改一些参数
+max_execution_time = 30000      ; 脚本最长的执行时间 单位为秒
+max_input_time = 600            ; 接收提交的数据的时间限制 单位为秒
+memory_limit = 1024M            ; 最大的内存消耗
+```
+
+
+
+
 ![](/assets/PHP.png)
