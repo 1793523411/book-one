@@ -50,4 +50,5 @@
 * [canvas-3](canvas-3.md)
 * [mysql](mysql.md)
 * [mysql-2](mysql-2.md)
+* [mysql-3](mysql-3.md)
 
