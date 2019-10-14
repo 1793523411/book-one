@@ -547,3 +547,71 @@ ALTER TABLE user4 MODIFY id INT AUTO_INCREMENT;
 | name  | varchar(20) | YES  |     | NULL    |                |
 +-------+-------------+------+-----+---------+----------------+
 ```
+
+
+## 数据库的三大设计范式
+### 1NF
+
+只要字段值还可以继续拆分，就不满足第一范式。
+
+范式设计得越详细，对某些实际操作可能会更好，但并非都有好处，需要对项目的实际情况进行设定。
+### 2NF
+
+在满足第一范式的前提下，其他列都必须完全依赖于主键列。如果出现不完全依赖，只可能发生在联合主键的情况下：
+```
+-- 订单表
+CREATE TABLE myorder (
+    product_id INT,
+    customer_id INT,
+    product_name VARCHAR(20),
+    customer_name VARCHAR(20),
+    PRIMARY KEY (product_id, customer_id)
+);
+```
+实际上，在这张订单表中，product_name 只依赖于 product_id ，customer_name 只依赖于 customer_id 。也就是说，product_name 和 customer_id 是没用关系的，customer_name 和 product_id 也是没有关系的。
+
+这就不满足第二范式：其他列都必须完全依赖于主键列！
+```
+CREATE TABLE myorder (
+    order_id INT PRIMARY KEY,
+    product_id INT,
+    customer_id INT
+);
+
+CREATE TABLE product (
+    id INT PRIMARY KEY,
+    name VARCHAR(20)
+);
+
+CREATE TABLE customer (
+    id INT PRIMARY KEY,
+    name VARCHAR(20)
+);
+```
+拆分之后，myorder 表中的 product_id 和 customer_id 完全依赖于 order_id 主键，而 product 和 customer 表中的其他字段又完全依赖于主键。满足了第二范式的设计！
+### 3NF
+
+在满足第二范式的前提下，除了主键列之外，其他列之间不能有传递依赖关系。
+```
+CREATE TABLE myorder (
+    order_id INT PRIMARY KEY,
+    product_id INT,
+    customer_id INT,
+    customer_phone VARCHAR(15)
+);
+```
+表中的 customer_phone 有可能依赖于 order_id 、 customer_id 两列，也就不满足了第三范式的设计：其他列之间不能有传递依赖关系。
+```
+CREATE TABLE myorder (
+    order_id INT PRIMARY KEY,
+    product_id INT,
+    customer_id INT
+);
+
+CREATE TABLE customer (
+    id INT PRIMARY KEY,
+    name VARCHAR(20),
+    phone VARCHAR(15)
+);
+```
+修改后就不存在其他列之间的传递依赖关系，其他列都只依赖于主键列，满足了第三范式的设计！
