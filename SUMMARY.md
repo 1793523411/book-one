@@ -48,4 +48,6 @@
 * [canvas-1](canvas-1.md)
 * [canvas-2](canvas-2.md)
 * [canvas-3](canvas-3.md)
+* [mysql](mysql.md)
+* [mysql-2](mysql-2.md)
 
