@@ -1,4 +1,4 @@
-# Node.js-4
+# Node.js-3
 
 ## 知识点
 
@@ -8,6 +8,7 @@
 * jQuery 的 each 和 原生的 JavaScript 方法 forEach
 
 * 301 和 302 的区别
+
 * 模块中导出单个成员和导出多个成员的方式
   * `module.exports = xxx`
   * 通过多次：`exports.xxx = xxx`
@@ -50,6 +51,7 @@
 * 文件路径中的 `/` 和模块标识中的 `/`
 
 * nodemon
+
 * Express
   * art-template 模板引擎的配置
   * body-parser 解析表单 POST 请求体
