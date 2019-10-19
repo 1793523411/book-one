@@ -193,13 +193,13 @@ AngularJS对这一实现原理进行了封装，将锚点的变化封装成路�
 通过ng-view指令布局模板，路由匹配的视图会被加载渲染到些区域。
 
 #### 路由参数
-1、提供两个方法匹配路由，分别是when和otherwise，when方法需要两个参数，otherwise方法做为when方法的补充只需要一个参数，其中when方法可以被多次调用。
-2、第1个参数是一个字符串，代表当前URL中的hash值。
-3、第2个参数是一个对象，配置当前路由的参数，如视图、控制器等。
-	a、template 字符串形式的视图模板
-	b、templateUrl 引入外部视图模板
-	c、controller 视图模板所属的控制器
-	d、redirectTo跳转到其它路由
+* 1、提供两个方法匹配路由，分别是when和otherwise，when方法需要两个参数，otherwise方法做为when方法的补充只需要一个参数，其中when方法可以被多次调用。
+* 2、第1个参数是一个字符串，代表当前URL中的hash值。
+* 3、第2个参数是一个对象，配置当前路由的参数，如视图、控制器等。
+* a、template 字符串形式的视图模板
+* b、templateUrl 引入外部视图模板
+* c、controller 视图模板所属的控制器
+* d、redirectTo跳转到其它路由
 4、获取参数，在控制中注入$routeParams可以获取传递的参数
 
 
