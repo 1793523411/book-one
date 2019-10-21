@@ -61,10 +61,10 @@
 * [nodejs-3](nodejs-3.md)
 * [nodejs-4](nodejs-4.md)
 * [nodejs-5](nodejs-5.md)
-* [angular--1](angular-1.md)
 * [github与gitlab](githubyu-gitlab.md)
 * [Git](git.md)
 * [shell,vi,bash,ssh](shellvibashssh.md)
 * [HTTP](http.md)
+* [angular--1](angular-1.md)
 * [angular-practice-1](angular-practice-1.md)
 
