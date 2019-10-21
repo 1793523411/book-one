@@ -54,6 +54,9 @@
 	  </dl>
   </div>
   <script src="angular.min.js"></script>
+  
+```
+```javascript
   <script>
 	  var app = angular.moudle('App',[]);
 	  App.controller('TodoListController',['$scope',function($scope){
