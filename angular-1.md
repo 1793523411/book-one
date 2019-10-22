@@ -56,6 +56,30 @@ ng-selected下拉框表单选中
 ### 自定义指令
 AngularJS允许根据实际业务需要自定义指令，通过angular全局对象下的directive方法实现。
 
+
+```JavaScript
+		var App = angular.module('App', []);
+
+		// 通过模块实例对象的directive方法可以自定义指令
+		App.directive('tag', function () {
+
+			// 返回一个对象，这个对象就是自定义指令相关的内容
+			return {
+				// E element
+				// A attribute
+				// C class
+				// M mark replace 必须为true
+				restrict: 'ECMA',
+				// template: '<ul><li>首页</li><li>列表</li></ul>',
+				templateUrl: './list.html',
+				// replace: true
+			}
+
+		});
+```
+
+
+
 ## 数据绑定
 AngularJS是以数据做为驱动的MVC框架，所有模型（Model）里的数据经由控制器（Controller）展示到视图（View）中。
 所谓数据绑定指的就是将模型（Model）中的数据与相应的视图（View）进行关联，分为单向绑定和双向绑定两种方式。
