@@ -119,3 +119,104 @@
 
 ```
 
+## angular跨域天气案例
+
+```html
+<body ng-app="Weather">
+	
+	<div ng-controller="WeatherController">
+		<table>
+			<tr ng-repeat="weather in weatherData">
+				<td>{{weather.date}}</td>
+				<td>{{weather.temperature}}</td>
+				<td>{{weather.weather}}</td>
+				<td>{{weather.wind}}</td>
+				<td><img ng-src="{{weather.dayPictureUrl}}" alt=""></td>
+				<td><img ng-src="{{weather.nightPictureUrl}}" alt=""></td>
+			</tr>
+		</table>
+	</div>
+```
+
+
+
+```javascript
+<script src="./libs/angular.min.js"></script>
+	<script>
+			
+		var Weather = angular.module('Weather', []);
+
+		Weather.controller('WeatherController', ['$scope', '$http', function ($scope, $http) {
+
+			$http({
+				url: 'http://api.map.baidu.com/telematics/v3/weather',
+				method: 'jsonp',
+				params: {
+					location: '北京',
+					output: 'json',
+					ak: '0A5bc3c4fb543c8f9bc54b77bc155724',
+					callback: 'JSON_CALLBACK'
+				}
+			}).success(function (info) {
+
+				// console.log(info);
+
+				$scope.weatherData = info.results[0].weather_data;
+
+			});
+
+
+		}]);
+
+	</script>
+```
+
+## AngularJS $http服务
+
+```html
+<body ng-app="App">
+	<h1>总结$http服务</h1>
+	<div ng-controller="DemoController">
+		<table>
+
+		</table>
+	</div>
+```
+
+
+
+```javascript
+<script>
+		var App = angular.module('App', []);
+
+		// 杜子腾 肚子疼
+
+		App.controller('DemoController', ['$scope', '$http' ,function($scope, $http) {
+
+			// XMLHttpRequest
+
+			// xhr = new XMLHttpRequest;
+
+			// xhr.open('get', 'xx.php');
+
+			// xhr.send('nane=itcast&age=10');
+
+			$http({
+				url: 'example.php',
+				method: 'post',
+				params: {sex: '男'}, // get 传参
+				data: {name: 'itcast', age: 10}, // post 传参
+				// restful
+				// data: 'name=itcast&age=10',
+				// headers: {
+				// 	'Content-Type': 'application/x-www-form-urlencoded'
+				// }
+			}).success(function (data) {
+				console.log(data);
+			});
+
+		}]);
+
+		// angularjs默认支持restful接口
+```
+
