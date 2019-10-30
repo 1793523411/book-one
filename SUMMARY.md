@@ -74,4 +74,7 @@
 * [gulp项目构建](gulpxiang-mu-gou-jian.md)
 * [es6-1](es6-1.md)
 * [es6-2](es6-2.md)
+* [es6-3](es6-3.md)
+* [es6-4](es6-4.md)
+* [es6-5](es6-5.md)
 
