@@ -72,4 +72,5 @@
 * [angular-4](angular-4.md)
 * [angular-practice-2](angular-practice-2.md)
 * [gulp项目构建](gulpxiang-mu-gou-jian.md)
+* [es6-1](es6-1.md)
 
