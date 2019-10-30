@@ -69,4 +69,6 @@
 * [angular-practice-1](angular-practice-1.md)
 * [angular-2](angular-2.md)
 * [angular-3](angular-3.md)
+* [angular-4](angular-4.md)
+* [angular-practice-2](angular-practice-2.md)
 
