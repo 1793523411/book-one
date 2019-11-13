@@ -82,4 +82,5 @@
 * [less](less.md)
 * [vue-1](vue-1.md)
 * [javascript history](javascript-history.md)
+* [vue-2](vue-2.md)
 
